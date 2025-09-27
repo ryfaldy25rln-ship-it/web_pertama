@@ -1,0 +1,1406 @@
+/* Import Font dari Google Fonts (sudah ada di HTML) */
+/* font-family: 'Playfair Display', serif; */
+
+:root {
+    --color-primary: #000000; /* Hitam untuk teks dan latar belakang */
+    --color-secondary: #f0e6d6; /* Krem/Putih Gading untuk latar belakang terang */
+    --color-accent: #a87932; /* Emas untuk aksen */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Arial', sans-serif;
+}
+
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header dan Navigasi */
+header {
+    background-color: var(--color-primary); /* Latar belakang hitam */
+    color: var(--color-secondary); /* Teks putih gading */
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-accent); /* Logo Emas */
+    text-decoration: none;
+    letter-spacing: 3px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh; /* Tinggi yang dramatis */
+    background: url('path/to/gambar-parfum-resolusi-tinggi.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white; /* Teks putih di atas gambar gelap */
+    /* Overlay gelap untuk membuat teks lebih menonjol */
+    position: relative;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Efek gelap */
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Tombol (Button) */
+.btn {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    padding: 12px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 2px solid var(--color-accent);
+    transition: background-color 0.3s, color 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+}
+
+/* Koleksi Produk */
+.product-grid {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.product-grid h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.product-item {
+    padding: 20px;
+    background-color: white; /* Kontras terang untuk produk */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product-item:hover {
+    transform: translateY(-10px); /* Efek melayang saat di-hover */
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain; /* Penting agar botol terlihat jelas */
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: 5px;
+}
+
+.price {
+    display: block;
+    font-weight: 700;
+    margin: 10px 0 15px;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+}
+
+.btn-small {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 20px 0;
+    text-align: center;
+}/* Koleksi Produk */
+.product-grid {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.product-grid h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Default: 2 kolom untuk tablet dan HP yang lebih besar */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 40px;
+}
+
+/* Tampilan Premium di Layar Desktop (4 kolom) */
+@media (min-width: 1024px) {
+    .product-grid {
+        /* Memaksa menjadi 4 kolom dengan lebar yang sama */
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 30px; /* Jarak antar produk lebih rapi */
+    }
+}
+
+/* Tampilan di HP (1 kolom untuk keterbacaan) */
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.product-item {
+    padding: 20px;
+    background-color: white; /* Kontras terang untuk produk */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product-item:hover {
+    transform: translateY(-10px); /* Efek melayang saat di-hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam saat di-hover */
+}
+
+/* ... sisa kode .product-item tetap sama ... */
+
+/* --- LAYOUT UTAMA: SIDEBAR + MAIN CONTENT --- */
+.collection-page {
+    padding: 50px 0;
+    display: grid;
+    /* Membuat 2 kolom: Sidebar (25%) dan Main Content (75%) */
+    grid-template-columns: 250px 1fr; 
+    gap: 50px;
+    align-items: start; /* Konten dimulai dari atas */
+}
+
+/* --- SIDEBAR (KOLOM KIRI) --- */
+.sidebar {
+    padding: 20px;
+    /* Gaya minimalis untuk filter */
+}
+
+.sidebar h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+/*
+==================================================
+        STYLE.CSS UNTUK LUXE PARFUM
+==================================================
+*/
+
+/* --- VARIABEL WARNA & FONT --- */
+:root {
+    --color-primary: #000000;         /* Hitam untuk teks dan latar belakang utama */
+    --color-secondary: #f0e6d6;       /* Krem/Putih Gading untuk latar belakang terang */
+    --color-accent: #a87932;          /* Emas untuk aksen */
+    --font-heading: 'Playfair Display', serif; /* Font Serif elegan */
+    --font-body: 'Arial', sans-serif;         /* Font Sans-serif bersih */
+}
+
+/* --- RESET DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- HEADER DAN NAVIGASI --- */
+header {
+    background-color: var(--color-primary); 
+    color: var(--color-secondary); 
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: padding 0.3s;
+}
+
+/* Efek saat scroll (ditambahkan di script.js) */
+.scrolled {
+    padding: 0.5rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-accent); 
+    text-decoration: none;
+    letter-spacing: 3px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 90vh; 
+    /* GANTI URL INI DENGAN PATH KE GAMBAR HIGH-RESOLUTION ANDA */
+    background: url('path/to/gambar-parfum-resolusi-tinggi.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white; 
+    position: relative;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Tombol */
+.btn {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    padding: 12px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 2px solid var(--color-accent);
+    transition: background-color 0.3s, color 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+}
+
+/* --- LAYOUT KOLEKSI (SIDEBAR + GRID PRODUK) --- */
+
+.collection-page {
+    padding: 50px 0;
+    display: grid;
+    /* Membuat 2 kolom: Sidebar (250px) dan Main Content (sisa ruang) */
+    grid-template-columns: 250px 1fr; 
+    gap: 50px;
+    align-items: start; 
+}
+
+/* SIDEBAR (KOLOM KIRI) */
+.sidebar {
+    padding: 20px 0;
+}
+
+.sidebar h3 {
+    font-family: var(--font-body); /* Gunakan font body yang bersih untuk filter */
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 5px 0;
+    font-size: 0.95rem;
+}
+
+/* MAIN CONTENT (KOLOM KANAN) */
+.main-content {
+    /* Mengisi sisa ruang */
+}
+
+/* GRID ATAS PRODUK (Harga/Kategori Baris Atas) */
+.product-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 0 10px; 
+}
+
+.header-item {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc; 
+}
+
+
+/* GRID PRODUK UTAMA (3 KOLOM) */
+.product-grid-new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+.product-item-new {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee; 
+    transition: box-shadow 0.3s;
+}
+
+.product-item-new:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-item-new img {
+    /* Ganti tinggi ini sesuai proporsi gambar parfum Anda */
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+    display: block;
+}
+
+/* Informasi di ATAS gambar */
+.product-info-top {
+    display: flex;
+    justify-content: flex-end; /* Pindahkan semua ke kanan */
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--color-secondary); 
+    border-bottom: 1px solid #ddd;
+}
+/* Menghilangkan label Category di baris atas untuk tampilan seperti contoh */
+.product-info-top .category {
+    display: none; 
+}
+
+.product-info-top .add-to-cart {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.product-info-top .add-to-cart:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+
+/* Informasi di BAWAH gambar */
+.product-info-bottom {
+    padding: 15px;
+    text-align: left;
+    min-height: 150px; /* Membantu menjaga tinggi kartu tetap sama */
+}
+
+.product-info-bottom h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+}
+
+.product-info-bottom .scent-family {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.price-and-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.price-and-cart .price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.price-and-cart .add-to-cart-bottom {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.price-and-cart .add-to-cart-bottom:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+
+/* --- TENTANG KAMI (ABOUT US) --- */
+
+.about-section {
+    padding: 100px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-accent); 
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444; 
+}
+
+.about-image-wrapper {
+    overflow: hidden;
+    border: 5px solid white; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+}
+
+.about-image:hover {
+    transform: scale(1.05);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px; /* Tambahkan jarak dari konten di atasnya */
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Untuk Tablet dan Layar Sedang */
+@media (max-width: 900px) {
+    /* Koleksi */
+    .collection-page {
+        /* Sidebar dan Main Content menjadi satu kolom */
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+    
+    .sidebar {
+        /* Filter di atas produk */
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .product-header,
+    .product-grid-new {
+        /* Produk menjadi 2 kolom di tablet */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Tentang Kami */
+    .about-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-title {
+        font-size: 2.5rem;
+        text-align: center;
+        display: block;
+    }
+    
+    .about-content {
+        order: 2;
+    }
+    
+    .about-image-wrapper {
+        order: 1;
+    }
+}
+
+/* Untuk Handphone */
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .product-header,
+    .product-grid-new {
+        /* Produk menjadi 1 kolom di HP */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .header-item {
+        display: none; /* Sembunyikan header kategori/harga di HP agar tidak terlalu ramai */
+    }
+}
+/*
+==================================================
+        STYLE.CSS UNTUK LUXE PARFUM EKSKLUSIF
+==================================================
+*/
+
+/* --- VARIABEL WARNA & FONT --- */
+:root {
+    --color-primary: #000000;         /* Hitam untuk teks dan latar belakang utama */
+    --color-secondary: #f0e6d6;       /* Krem/Putih Gading untuk latar belakang terang */
+    --color-accent: #a87932;          /* Emas untuk aksen */
+    --font-heading: 'Playfair Display', serif; /* Font Serif elegan */
+    --font-body: 'Arial', sans-serif;         /* Font Sans-serif bersih */
+}
+
+/* --- RESET DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- HEADER DAN NAVIGASI --- */
+header {
+    background-color: var(--color-primary); 
+    color: var(--color-secondary); 
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: padding 0.3s;
+}
+
+/* Efek saat scroll (ditambahkan di script.js) */
+.scrolled {
+    padding: 0.5rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-accent); 
+    text-decoration: none;
+    letter-spacing: 3px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 90vh; 
+    /* GANTI URL INI DENGAN PATH KE GAMBAR HIGH-RESOLUTION ANDA */
+    background: url('path/to/gambar-parfum-resolusi-tinggi.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white; 
+    position: relative;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Tombol */
+.btn {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    padding: 12px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 2px solid var(--color-accent);
+    transition: background-color 0.3s, color 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+}
+
+/* --- LAYOUT KOLEKSI (SIDEBAR + GRID PRODUK) --- */
+
+.collection-page {
+    padding: 50px 0;
+    display: grid;
+    /* Membuat 2 kolom: Sidebar (250px) dan Main Content (sisa ruang) */
+    grid-template-columns: 250px 1fr; 
+    gap: 50px;
+    align-items: start; 
+}
+
+/* SIDEBAR (KOLOM KIRI) */
+.sidebar {
+    padding: 20px 0;
+}
+
+.sidebar h3 {
+    font-family: var(--font-body); /* Gunakan font body yang bersih untuk filter */
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 5px 0;
+    font-size: 0.95rem;
+}
+
+/* MAIN CONTENT (KOLOM KANAN) */
+.main-content {
+    /* Mengisi sisa ruang */
+}
+
+/* GRID ATAS PRODUK (Harga/Kategori Baris Atas) */
+.product-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 0 10px; 
+}
+
+.header-item {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc; 
+}
+
+
+/* GRID PRODUK UTAMA (3 KOLOM) */
+.product-grid-new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+.product-item-new {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee; 
+    transition: box-shadow 0.3s;
+}
+
+.product-item-new:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-item-new img {
+    /* Ganti tinggi ini sesuai proporsi gambar parfum Anda */
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+    display: block;
+}
+
+/* Informasi di ATAS gambar */
+.product-info-top {
+    display: flex;
+    justify-content: flex-end; /* Pindahkan semua ke kanan */
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--color-secondary); 
+    border-bottom: 1px solid #ddd;
+}
+/* Menghilangkan label Category di baris atas untuk tampilan seperti contoh */
+.product-info-top .category {
+    display: none; 
+}
+
+.product-info-top .add-to-cart {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.product-info-top .add-to-cart:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+
+/* Informasi di BAWAH gambar */
+.product-info-bottom {
+    padding: 15px;
+    text-align: left;
+    min-height: 150px; /* Membantu menjaga tinggi kartu tetap sama */
+}
+
+.product-info-bottom h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+}
+
+.product-info-bottom .scent-family {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.price-and-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.price-and-cart .price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.price-and-cart .add-to-cart-bottom {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.price-and-cart .add-to-cart-bottom:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+
+/* --- TENTANG KAMI (ABOUT US) --- */
+
+.about-section {
+    padding: 100px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-accent); 
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444; 
+}
+
+.about-image-wrapper {
+    overflow: hidden;
+    border: 5px solid white; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+}
+
+.about-image:hover {
+    transform: scale(1.05);
+}
+
+
+/* --- KONTAK KAMI (CONTACT SECTION) --- */
+.contact-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.contact-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
+.contact-grid {
+    display: grid;
+    /* Layout 2 kolom yang sama besar */
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    text-align: left;
+}
+
+.contact-info,
+.contact-location {
+    padding: 40px;
+    background-color: white; /* Kontras tinggi */
+    border: 1px solid var(--color-accent); /* Border emas tipis */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.contact-info:hover,
+.contact-location:hover {
+    transform: translateY(-5px); /* Efek minor yang mewah */
+}
+
+.contact-info h3,
+.contact-location h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.contact-info p,
+.contact-location p,
+.contact-location address {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.contact-detail a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.contact-detail a:hover {
+    color: var(--color-accent);
+}
+
+.schedule {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 15px;
+}
+
+/* Tombol Jadwal Konsultasi (mirip btn utama) */
+.btn-schedule {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 10px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-schedule:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.map-placeholder {
+    height: 150px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-style: italic;
+    color: #aaa;
+    border: 1px solid #ddd;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px; 
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Untuk Tablet dan Layar Sedang */
+@media (max-width: 900px) {
+    /* Header */
+    .logo {
+        font-size: 1.5rem;
+    }
+    nav ul {
+        gap: 15px;
+    }
+
+    /* Koleksi */
+    .collection-page {
+        /* Sidebar dan Main Content menjadi satu kolom */
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+    
+    .sidebar {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .product-header,
+    .product-grid-new {
+        /* Produk menjadi 2 kolom di tablet */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Tentang Kami */
+    .about-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-title {
+        font-size: 2.5rem;
+        text-align: center;
+        display: block;
+    }
+    
+    .about-content {
+        order: 2;
+    }
+    
+    .about-image-wrapper {
+        order: 1;
+    }
+    
+    /* Kontak */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .contact-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* Untuk Handphone */
+@media (max-width: 600px) {
+    /* Hero */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* Koleksi */
+    .product-header,
+    .product-grid-new {
+        /* Produk menjadi 1 kolom di HP */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .header-item {
+        display: none; /* Sembunyikan header kategori/harga di HP agar tidak terlalu ramai */
+    }
+}
+/* --- OVERLAY KERANJANG --- */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Hitam transparan */
+    z-index: 199; /* Di bawah drawer */
+    opacity: 0; /* Sembunyikan secara default */
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* --- DRAWER KERANJANG UTAMA (SIDEBAR) --- */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 380px; /* Ukuran elegan, tidak terlalu lebar */
+    height: 100%;
+    background-color: white; 
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 200; /* Di atas overlay */
+    transform: translateX(100%); /* Sembunyikan ke kanan secara default */
+    transition: transform 0.4s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.active {
+    transform: translateX(0); /* Tampilkan */
+}
+
+/* Header */
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid var(--color-accent); /* Garis emas elegan */
+}
+
+.cart-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.cart-header .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+.cart-header .close-btn:hover {
+    color: var(--color-accent);
+}
+
+/* Item dalam Keranjang */
+.cart-items {
+    padding: 20px;
+    flex-grow: 1; /* Agar item mengisi ruang yang tersedia */
+    overflow-y: auto; /* Scroll jika itemnya banyak */
+}
+
+.cart-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+}
+
+.item-details h4 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.item-details p {
+    font-weight: bold;
+    color: var(--color-accent);
+    margin: 5px 0;
+}
+
+.item-actions input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.item-actions .remove-btn {
+    background: none;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+/* Ringkasan Keranjang */
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+}
+
+.subtotal-price {
+    color: var(--color-accent);
+}
+
+.btn-checkout {
+    display: block;
+    width: 90%;
+    margin: 0 auto 20px;
+    text-align: center;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-checkout:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 50px 0;
+    color: #888;
+    font-style: italic;
+}
+
+
+/* Responsive untuk HP (membuat keranjang mengisi seluruh layar) */
+@media (max-width: 500px) {
+    .cart-drawer {
+        width: 100%;
+    }
+}
+/* CSS untuk mencegah scroll saat cart drawer terbuka */
+.no-scroll {
+    overflow: hidden;
+}
